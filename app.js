@@ -160,3 +160,73 @@ let sortedByBirthYear = inventors.sort((a, b) => a.year - b.year);
 
 // Check your work:
 console.log('Exercise 3 my result: ', sortedByBirthYear);
+console.log('============================== Exercise 4 Solution ========================== ')
+/* 
+Exercise 4: Array.prototype.find()
+
+Use Array.prototype.find() to identify the inventor with the first name 'Ada' 
+from an array of inventor objects
+
+- You have an array of objects, each representing an inventor with various 
+  properties including their first name.
+- Utilize the Array.prototype.find() method to locate the object for the 
+  inventor with the first name 'Ada'.
+- Assign the found inventor object to the variable inventorNamedAda
+*/
+
+//let inventorNamedAda = {};
+
+const inventorNamedAda = inventors.find((inventor) => {
+  return inventor.first === 'Ada';
+})
+
+// Complete the exercise in the space below:
+
+// Check your work:
+console.log('Exercise 4 my result: ', inventorNamedAda);
+console.log('============================== Exercise 5 Solution ========================== ')
+/*
+Exercise 5: Array.prototype.map()
+
+Use the Array.prototype.map() method to reformat each name in the 'people' 
+array. The goal is to convert names from "Last, First" format to "First Last" 
+format.
+
+Hint: Use the String.prototype.split() method to separate the first and last 
+      names. You can split the string using ', ' as the separator.
+      After splitting the names, rearrange them to the "First Last" format.
+*/
+
+//let firstLast = [];
+
+const firstLast = people.map(person => {
+  const [last, first] = person.split(',');
+  return `${first} ${last}`;
+})
+
+console.log('Exercise 5 my result: ', firstLast);
+
+console.log('============================== Exercise 6 Solution ========================== ');
+/*
+Exercise 6: Array.prototype.some()
+
+Determine if there is at least one person in the devs array who is 18 years 
+old or older.
+
+- You have an array of people with their respective ages.
+- Use the Array.prototype.some() method to check if any person in the array is 
+  18 years old or older.
+- Store the result (true or false) in the variable 'isAdultPresent'. 
+*/
+
+//let isAdultPresent = null;
+
+const isAdultPresent = devs.some(dev => {
+  let today = new Date();
+  let age = today.getFullYear() - dev.year;
+  return age >= 18;
+})
+
+// Check your work:
+console.log('Exercise 6 my result: ', isAdultPresent);
+console.log('Exercise 6 correct result: ', true);
